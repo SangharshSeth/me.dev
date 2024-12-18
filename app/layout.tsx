@@ -5,8 +5,8 @@ import Link from "next/link";
 import DarkModeToggle from './components/DarkModeToggle';
 
 export const metadata: Metadata = {
-    title: 'Backend Engineer Portfolio',
-    description: 'Personal portfolio of a backend engineer',
+    title: 'Sangharsh',
+    description: 'Welcome to my profile',
 }
 
 export default function RootLayout({children}: {
