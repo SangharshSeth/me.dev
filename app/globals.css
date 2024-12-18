@@ -1,21 +1,212 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdf6f6;
+  --text: #2c2c2c;
+  --link: #4a4a4a;
+  --link-hover: #000000;
+  --border: #d4d4d4;
+  --card-bg: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #1a1a1a;
+  --text: #e0e0e0;
+  --link: #a0a0a0;
+  --link-hover: #ffffff;
+  --border: #4a4a4a;
+  --card-bg: #2c2c2c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'EB Garamond', serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 2rem 0 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+
+.nav {
+  margin: 3rem 0;
+  font-size: 1.1rem;
+}
+
+.nav a {
+  margin-right: 2rem;
+  font-style: italic;
+}
+
+.highlight {
+  font-style: italic;
+  border-bottom: 1px solid var(--border);
+}
+
+.projects {
+  margin: 2rem 0;
+}
+
+.project {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* Styles for contact page */
+.contact-page .intro {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+  background-color: var(--link);
+  color: var(--background);
+  border-color: var(--link);
+}
+
+.contact-item svg {
+  margin-right: 1rem;
+}
+
+.contact-item span {
+  font-size: 1.1rem;
+}
+
+/* Styles for the projects page */
+.projects-page .intro {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.project-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.project-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-left: 0;
+}
+
+.project-item::before {
+  display: none;
+}
+
+.project-title {
+  font-size: 2rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+  border-bottom: none;
+  color: var(--link);
+}
+
+.project-title:hover {
+  border-bottom-color: var(--link-hover);
+}
+
+.project-description {
+  font-size: 1.2rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.github-link {
+  border-bottom: none;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.github-link:hover svg {
+  stroke: var(--link-hover);
+}
+
+@media (max-width: 600px) {
+  .project-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .project-description {
+    margin-bottom: 0.5rem;
+  }
+}
+
